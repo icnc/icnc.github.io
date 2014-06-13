@@ -1,1 +1,103 @@
-Hello World
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Intel® CnC</title>
+
+    <script src="javascripts/jquery-2.1.1.js"></script>
+    <script>
+      var QueryString = function () {
+        // This function is anonymous, is executed immediately and 
+        // the return value is assigned to QueryString!
+        var query_string = {};
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split("=");
+            // If first entry with this name
+            if (typeof query_string[pair[0]] === "undefined") {
+                query_string[pair[0]] = pair[1];
+                // If second entry with this name
+            } else if (typeof query_string[pair[0]] === "string") {
+                var arr = [ query_string[pair[0]], pair[1] ];
+                query_string[pair[0]] = arr;
+                // If third or later entry with this name
+            } else {
+                query_string[pair[0]].push(pair[1]);
+            }
+        } 
+        return query_string;
+      } ();
+
+    function loadPage(f, w)
+    {
+        var hdr = { 'home.html': 'CnC',
+                    'Release_Notes.html': 'CnC Release Notes',
+                    'Getting_Started.html': 'CnC Getting Started',
+                    'FAQ.html': 'CnC FAQ',
+                    'download.html': 'CnC Downloads' };
+
+        var hdr_txt = hdr[f];
+        if(! hdr_txt) {
+            f = 'home.html';
+            hdr_txt = 'CnC';
+        }
+        $(w).load( f );
+        if (w=='#main-content') {
+            document.getElementById("heading").innerHTML=hdr_txt
+        }
+    }
+
+    function defaultPage()
+    {
+        loadPage(QueryString.nav, '#main-content');
+    }
+  </script>
+
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1 id="heading">CnC</h1>
+        <h2>Intel&copy; Concurrent Collections for C++</h2>
+        <a href="https://github.com/icnc/icnc" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+      <div id="nav" class="inner clearfix">
+        <a href="javascript:void(0)" onclick="loadPage('home.html', '#main-content')">Home</a> |
+        <a href="api/tutorial.html" target="_blank">Tutorial</a> |
+        <a href="api/index.html" target="_blank">Documentation</a> |
+        <a href="javascript:void(0)" onclick="loadPage('Release_Notes.html', '#main-content')">Release Notes</a> |
+        <a href="javascript:void(0)" onclick="loadPage('Getting_Started.html', '#main-content')">Getting Started</a> |
+        <a href="javascript:void(0)" onclick="loadPage('FAQ.html', '#main-content')">FAQ</a> |
+        <a href="javascript:void(0)" onclick="loadPage('download.html', '#main-content')">Downloads</a>
+      </div>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+
+
+        <section id="main-content">
+        <script>defaultPage()</script>
+        </section>
+
+        <aside id="sidebar">
+        <script>loadPage('download.html', '#sidebar')</script>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>

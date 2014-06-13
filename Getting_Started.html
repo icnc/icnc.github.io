@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<h2 class="sectionHeading">Contents</h2>
+<ul>
+<li><a href="#_Toc319330628">This is Pre-Release Code</a></li>
+<li><a href="#_Toc319330629">The Prerequisite Software for Install and Set-up</a></li>
+<li><a href="#_Toc319330630">Intel&copy; Threading Building Blocks Library</a></li>
+<li><a href="#_Toc319330631">Downloading and Installing the Intel&copy; Concurrent Collections for C++</a></li>
+<li><a href="#_Toc319330632">Building CnC applications</a></li>
+<li><a href="#_samples">Building the Samples</a></li>
+<li><a href="#_Toc319330634">Building the samples with the Intel C++ Compiler</a></li>
+<li><a href="#_Toc319330635">Running CnC applications</a></li>
+<li><a href="#_Toc319330636">Documentation and Tutorials</a></li>
+<li><a href="#_update_prod">Changing, Updating and Removing the Product</a></li>
+<li><a href="#_Toc319330638">Report Problems or Leave Feedback</a></li>
+<li><a href="#legal">Disclaimer and Legal Information</a></li>
+</ul>
+
+<h2 class="sectionHeading"><a name="_Toc319330628"></a>This is Pre-Release Code
+</h2>
+<p>Intel&copy; Concurrent Collections for C++ (CnC) is pre-release code, which may not be fully functional and which Intel may substantially modify in producing any final version.  Intel can provide no assurance that it will ever produce or make generally available a final version.</p>
+
+<h2 class="sectionHeading"><a name="_Toc319330629"></a><a name="The_Prerequisite_Software_for_Install_an"></a>The Prerequisite Software for Install and Set-up</h2>
+<ol>
+<li>Intel&copy; Concurrent Collections for C++ is supported on the Microsoft Windows* OS and Linux* OS running on IA-32 or Intel&copy; 64 architecture systems.</li>
+<li>For Microsoft Windows*, you must have Microsoft Visual Studio* 2013, or Microsoft Visual Studio* 2010, or Microsoft Visual Studio* 2012 with the Visual C++* component installed on your system.</li>
+<li>For Linux*, you must have GNU g++ version 4.6.4 or greater installed on your system.</li>
+     <li><a name="_Toc319330630"></a>Intel&copy; Threading Building Blocks (TBB) 4.2 Update 3 or greater is required. If you download the CnC package with TBB you're all set (simply chose the approriate package when downloading CnC, TBB is included in the Linux package).
+  <ul>
+  <li>You can also use an installation of the following suites (the come with a suitable environment setup)
+    <ul>
+    <li> Intel&copy; Cluster Studio XE 2013 SP1 (or newer)
+    <li> Intel&copy; Composer XE 2013 SP1 Update 2 (Intel&copy; C++-Compiler Version 14.0.2) (or newer)
+    </ul>
+  <li>Use a custom installation of TBB. You can get the latest TBB from <a href="http://threadingbuildingblocks.org/download">http://threadingbuildingblocks.org/download</a>. Please refer to the TBB homepage for proper installation and setup.
+  </ul>
+</li>
+<li>For running CnC applications on distributed memory through MPI you also need Intel&copy; MPI 4.1.0 or later (e.g. through Intel&copy; Cluster Studio XE 2013)
+</ol>
+<p>Note: With an installation of Intel&copy; Cluster Studio XE 2013 SP1 (or newer), Intel&copy; Composer XE 2013 SP1 Update 2 (or newer) or Intel&copy; C++-Compiler Version 14.0.2 (or newer) everything required is available on your system (including TBB).
+<br />Note: Intel&copy; Concurrent Collections for C++ is designed to run with either the Microsoft* or Intel&copy; C++ compilers on Microsoft Windows*, and either the GNU g++ or Intel&copy; C++ compilers on Linux*.
+<br />Note: Some of the sample codes require a decently recent compiler, such as g++ 4.8, Intel&copy; C++ compiler 12.1, or Microsoft* Visual Studio* 2010 (or later)
+</p>
+
+
+<h2 class="sectionHeading"><a name="_Toc319330631"></a>Downloading and Installing the Intel&copy; Concurrent Collections for C++<a name="Downloading_and_Installing_the_Intel&copy;_Co"></a></h2>
+<p><b>For Windows*</b></p>
+<p>Simply download the install exe from the <a href="http://software.intel.com/en-us/articles/intel-concurrent-collections-for-cc">CnC homepage</a>, and run it. If you do not have TBB installed on your system (see <a href="#_Toc319330630">Intel&copy; Threading Building Blocks Library)</a> , please chose the appropriate package which contains TBB.</p>
+<p>The install process creates an environment variable named CNCROOT, which points to the full path name of the Intel&copy; Concurrent Collections for C++ installation. If you want to use another version of CnC, you must manually set CNCROOT to point to that location. Installing the package which contains TBB will also set the environment variable TBBROOT to the new installation of TBB.</p>
+<p><b>For Linux*</b></p>
+<p>Simply download the kit from the <a href="http://software.intel.com/en-us/articles/intel-concurrent-collections-for-cc">CnC homepage</a>, extract it and run the provided install.sh script. For example:</p>
+<ol>
+<code><li>tar -xzf "l_cnc_b_0.*.*.tgz"</li>
+<li>cd l_cnc_b_0.*.*</li>
+<li>./install.sh<br></code>and follow the instructions. The installer will prompt you for installing TBB. Please accept if you do not have TBB installed on your system (see <a href="#_Toc319330630">Intel&copy; Threading Building Blocks Library)</a>.
+</ol>
+
+<p><b>Sources</b></p>
+<p>The source code of Intel&copy; Concurrent Collections for C++ is available under an open source license. You may download the sources from <a href="https://github.com/icnc/icnc">github</a> and compile it yourself.
+</p>
+
+<h2 class="sectionHeading"><a name="_samples"></a>Building the Samples</h2>
+<p>Sample programs using the Intel&copy; Concurrent Collections for C++ product are available in $CNCROOT/samples/. When working with the samples, you may wish to work in a copy of the samples directory. Ensure that the working samples directory is write permitted before building the samples.</p>
+<p>The build environment must be set up properly (see <a href="#_Toc319330631">Installing CnC</a>).</p>
+
+<p><b>For Windows*</b></p>
+     <p>The Intel&copy; Concurrent Collections for C++ package comes with a combined solution file for Microsoft Visual Studio*: $CNCROOT/samples/allsamples.sln.
+<p>The solution and project files might need conversion, which is done automatically by Visual Studio*, but it might take a while to complete. Just follow the instructions on the screen.<br /><br />Make sure you select the right "solution platform" when building the samples ("Win32" for ia32 and "X86" for intel64).<br />
+
+<strong><br />For Linux*</strong></p>
+<p>Type "<code>make</code>" in the samples directory, or to build individual samples, type "<code>make &lt;<span class="SpellE">sample_name</span>&gt;</code>".</p>
+
+<strong><br />For Intel Xeon Phi(TM) (MIC)</strong></p>
+<p>Type<br />
+<code>make ARCH=mic OPTS="-mmic -L$TBBROOT/lib/mic" CXX=icpc</code><br />
+in the samples directory, or to build individual samples, type <br />
+<code>make ARCH=mic OPTS="-mmic -L$TBBROOT/lib/mic" CXX=icpc &lt;<span class="SpellE">sample_name</span>&gt;</code>.</p>
+
+<h2 class="sectionHeading"><a name="_Toc319330634"></a>Building the samples with the Intel&copy; C++ Compiler:</h2>
+<p><b>For Windows*</b></p>
+<ol>
+<li>In the <b>Solution Explorer</b> window, select the project you want to modify.</li>
+<li>Right-click on the project name and select <b>Use Intel C++</b>. After converting, the Intel C++ Compiler becomes the default compiler for your project.</li>
+</ol>
+<p><b>For Linux*</b></p>
+<p>Set up the Intel C++ environment variables, and launch the sample Makefile specifying icpc as the build compiler. For example:</p>
+<code><p>source /opt/intel/Compiler/11.1/046/bin/iccvars.sh intel64<br />cd $CNCROOT/samples/fib<br />make CXX=icpc</p></code>
+
+
+<h2 class="sectionHeading"><a name="_Toc319330632"></a>Building CnC applications</h2>
+<p>Compiling with Intel&copy; Concurrent Collections for C++ requires that the compiler finds the Intel&copy; Threading Building Blocks libraries and the CnC libraries.</p>
+<p><b>For Windows*</b></p>
+<p>The installer sets the environment variable CNCROOT to point to the right directory. You might need to re-launch you shell or Microsoft Visual Studio* to make them known. It is recommended that you simply copy a project file from the samples directory and start your own project from there.</p>
+<p>If you want to do it the hard way here is what you need to do:</p>
+<ul>
+<li>Add include directory $(CNCROOT)\include<br />(right-click on the project -&gt; Properties -&gt; C/C++ -&gt; General -&gt; Additional Include Directories).</li>
+<li>Add CnC library (where &lt;arch&gt; must be replaced by your CPU architecture: ia32 or intel64)<br />(right-click on the project -&gt; Properties -&gt; Linker -&gt; Input -&gt; Additional Dependencies):<br />
+<ul>
+<li><b>"$(CNCROOT)\lib\&lt;arch&gt;\cnc_vc12.0.lib"</b> (when using Microsoft Visual Studio* 2013)</li>
+<li><b>"$(CNCROOT)\lib\&lt;arch&gt;\cnc_vc11.0.lib"</b> (when using Microsoft Visual Studio* 2012)</li>
+<li><b>"$(CNCROOT)\lib\&lt;arch&gt;\cnc_vc10.0.lib"</b> (when using Microsoft Visual Studio* 2010)</li>
+</ul>
+</li>
+<li>When building a debug version, it is recommended to 
+<ul>
+<li>Define Preprocessor macro CNC_USE_ASSERT<br />(right-click on the project -&gt; Properties -&gt; C/C++ -&gt;Preprocessor -&gt; Preprocessor Definitions)</li>
+<li>Link against the respective debug version (<b>"$(CNCROOT)\lib\&lt;arch&gt;\cnc_debug_vc*.lib"</b>)</li>
+</ul>
+</li>
+</ul>
+If you are <b>not</b> using a tbbvars.bat script to set up the TBB environment or if you do not build within an Intel&copy; Composer, Intel&copy; Parallel Studio, or Intel&copy; Cluster Studio environment, you also need to provide similar flags for TBB:<br /><br />
+<ul>
+<li>Add include directory $(TBBROOT)\include<br />(right-click on the project -&gt; Properties -&gt; C/C++ -&gt; General -&gt; Additional Include Directories).</li>
+<li>Add CnC library (where &lt;arch&gt; must be replaced by your CPU architecture: ia32 or intel64)<br />(right-click on the project -&gt; Properties -&gt; Linker -&gt; Input -&gt; Additional Dependencies): 
+<ul>
+<li><b>"$(TBBROOT)\lib\&lt;arch&gt;\vc12\tbb.lib $(TBBROOT)\lib\&lt;arch&gt;\vc12\tbbmalloc.lib"</b> (when using Microsoft Visual Studio* 2013)</li>
+<li><b>"$(TBBROOT)\lib\&lt;arch&gt;\vc11\tbb.lib $(TBBROOT)\lib\&lt;arch&gt;\vc11\tbbmalloc.lib"</b> (when using Microsoft Visual Studio* 2012)</li>
+<li><b>"$(TBBROOT)\lib\&lt;arch&gt;\vc10\tbb.lib $(TBBROOT)\lib\&lt;arch&gt;\vc10\tbbmalloc.lib"</b> (when using Microsoft Visual Studio* 2010)</li>
+</ul>
+</li>
+<li>When building a debug version, it is recommended to<br />
+<ul>
+<li>Define Preprocessor macro TBB_USE_ASSERT<br />(right-click on the project -&gt; Properties -&gt; C/C++ -&gt;Preprocessor -&gt; Preprocessor Definitions)</li>
+<li>Link against the respective debug version (<b>"$(TBBROOT)\lib\&lt;arch&gt;\vc*\tbb_debug.lib $(TBBROOT)\lib\&lt;arch&gt;\vc*\tbbmalloc_debug.lib"</b>)</li>
+</ul>
+</li>
+</ul>
+<p><b>For Linux*</b></p>
+<p>The provided shell scripts &lt;installdir&gt;/bin/cncvars.[c]sh sets the environment variable CNCROOT to the appropriate path and extends the shell's LD_LIBRARY_PATH. We recommend that you <code>source cncvars.sh</code> (bash) or <code>cncvars.csh</code> ([t]csh) and do the same with tbbvars.[c]sh before building/running CnC applications. It is recommended that you copy a Makefile from the samples directory and start your own project from there.</p>
+
+<p>If you want to do it the hard way here is what you need to do:</p>
+<ul>
+<li>At compile time add -I$CNCROOT/include</li>
+<li>At link time add -L$CNCROOT/lib/intel64 -lcnc -lrt -pthread</li>
+<li>When building a debug version, it is recommended to 
+<ul>
+<li>At compile time add -DCNC_USE_ASSERT</li>
+<li>At link time use -lcnc_debug instead of -lcnc</li>
+</ul>
+</li>
+</ul>
+<p>If you are <b>not</b> using a tbbvars.[c]sh script to set up the TBB environment, you also need to provide similar flags for TBB:</p>
+<ul>
+<li>At compile time add -I$TBBROOT/include</li>
+<li>At link time add -L$TBBROOT/lib/intel64/cc4.1.0_libc2.4_kernel2.6.16.21 -ltbb -lttbmalloc</li>
+    <ul> <li> Depending on your installation of TBB you might need to replace "cc4.1.0_libc2.4_kernel2.6.16.21" with "gcc4.6" or similar (or even nothing). Please check the TBB's directory structure if the above doesn't work. </ul> </li>
+<li>When building a debug version, it is recommended to<br />
+<ul>
+<li>At compile time add -DTBB_USE_ASSERT</li>
+<li>At link time use -ltbb_debug -ltbbmalloc_debug instead of -lcnc -ltbbmalloc</li>
+</ul>
+</li>
+</ul>
+
+<p><b>For Intel Xeon Phi(TM) (MIC)</b></p>
+<p>See above for Linux (<code>source CNCROOT/bin/cncvars.sh</code>).</p>
+<br />For the hard way, replace "intel64/intel64/cc4.1.0_libc2.4_kernel2.6.16.21" with "mic".
+<p>Of course you need to use the usual compile flags for MIC, e.g. "-mmic".</p>
+
+<h2 class="sectionHeading"><a name="_Toc319330635"></a>Running CnC applications</h2>
+<p><em>If the build environment is set up properly then launching CnC applications from within the development evnironment (shell or from Microsoft Visual Studio*) will just work fine.</em></p>
+<p><b>Running CnC applications on Windows* outside of Microsoft Visual Studio*</b></p>
+<p>Nothing needs to be done for Intel&copy; Concurrent Collections for C++ itself. The installer extends the PATH (environment variable) so that Windows* find the necessary dlls. You might need to re-launch you shell or Microsoft Visual Studio* to make them known.</p>
+<p>If you installed CnC for 32bit (ia32) and 64bit (intel64) the installer adds the path to 32bit dlls and to 64bit dlls. The order defines which one is tried to be loaded. Hence we recommend to copy the appropriate CnC dlls from $CNCROOT/bin/*&lt;arch&gt*dll next to your executable.</p>
+<p>If you are not using a tbbvars.bat script to set up the TBB environment or if you do not build within an Intel&copy; Composer or Intel&copy; Parallel Studio environment, you need to do one of the following
+<ul>
+  <li> execute the tbbvars.bat script (in the same shell as you are executing the application)<br>
+       %TBBROOT%/bin/tbbvars.bat [arch] [vsver]<br>
+       where [arch] is intel64 or ia32 and [vsver] is vs2013, vs2010 or vs2012 depending on your current setup
+  <li> copy the respective TBB libraries next to your executable
+</ul>
+
+<p><b>Running CnC applications on Linux*</b></p>
+<p>We recommend that you <code>source cncvars.sh</code> (bash) or <code>cncvars.csh</code> ([t]csh) and do the same with tbbvars.[c]sh before building/running CnC applications. This will set up your LD_LIBRARY_PATH so that the CnC and TBB libraries are found.</p>
+<p>If that's not possible, you must add the following paths to your LD_LIBRARY_PATH:</p>
+<ul>
+<li>$CNCROOT/lib/intel64</li>
+<li>$TBBROOT/lib/intel64/cc4.1.0_libc2.4_kernel2.6.16.21</li>
+    <ul> <li> Depending on your installation of TBB you might need to replace "cc4.1.0_libc2.4_kernel2.6.16.21" with "gcc4.6" or similar (or even nothing). Please check the TBB's directory structure if the above doesn't work. </ul> </li>
+</ul>
+
+<p><b>Running CnC applications on Intel Xeon Phi(TM) (MIC)</b></p>
+<p>See above for Linux; just replace "intel64[/intel64/cc4.1.0_libc2.4_kernel2.6.16.21]" with "mic".
+<p>To run an application across host and MIC (or several MICs) build a "normal" distributed CnC applicaion for all platforms (e.g. intel64 and mic; no MIC specific programming needed) and use Intel(R) MPI (or SOCKETS) to start processes on MICs and CPUs. More detailed instructions can be found <a href="api/distcnc.html"> here</a></p>
+
+<h2 class="sectionHeading"><a name="_Toc319330636"></a><a name="Locate_the_Documentation"></a>Documentation and Tutorials</h2>
+<pMost documentation is also located in the &lt;install-dir&gt;\doc\ directory.</p>
+<ul>
+<li><a href="api/tutorial.html">Step-by-Step API Tutorial</a></li>
+<li><a href="api/index.html">Runtime API</a></li>
+<li><a href="CnC_eight_patterns.pdf">The Eight fundamental Patterns of Concurrent Collections</a></li>
+<li><a href="index.html?nav=Release_Notes.html">Release Notes</a></li>
+</ul>
+
+<h2 class="sectionHeading"><a name="_update_prod"></a>Changing, Updating and Removing the Product</h2>
+<p>(<b>For Windows* only</b>)</p>
+<p>If you want to add or remove components from an installation, open the Add or Remove Programs applet in the Windows Control Panel, select "Intel&copy; Concurrent Collections for C++ Prototype Edition, version *.*.*" and click Change. To remove the product, select Remove instead of Change. If you have installed Intel&copy; Concurrent Collections for C++ for 32bit (ia32) and 64bit (intel64) into the same directory, de-installing one will remove all common files.</p>
+<p>When installing an updated version of the product, you do not need to remove the older version first.</p>
+
+<h2 class="sectionHeading"><a name="_Toc319330638"></a><a name="Report_Problems_or_Leave_Feedback"></a><a name="_Toc318970625"></a>Report Problems or Leave Feedback</h2>
+<p>To report a problem or leave feedback on this product, please visit:<br /><a href="http://softwarecommunity.intel.com/articles/eng/3862.htm">http://softwarecommunity.intel.com/articles/eng/3862.htm</a><br /><br />or visit the "Whatif Alpha Forum" to participate in forum discussions about Intel&copy; Concurrent Collections:<br /><a href="http://software.intel.com/en-us/forums/whatif-alpha-software/">http://software.intel.com/en-us/forums/whatif-alpha-software/</a></p>
+<p>Then click on <i>"Search Forum"</i> and search for <i>"Concurrent Collections"</i></p>
+
+</html>

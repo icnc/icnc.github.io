@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<h2 class="sectionHeading">Contents</h2>
+<a href="#general">General Questions about Concurrent Collections</a> 
+<ul>
+<li><a href="#general1">What is Intel&copy; Concurrent Collections for C++</a></li>
+<li><a href="#general2">What is the derivation of the name "Intel&copy; Concurrent Collections for C++"?</a></li>
+<li><a href="#general3">How do I write parallel applications using Intel&copy; Concurrent Collections for C++?</a></li>
+<li><a href="#general4">What benefits can I expect from using Intel&copy; Concurrent Collections for C++?</a></li>
+<li><a href="#general5">What applications are suited for parallelization with Intel&copy; Concurrent Collections for C++?</a></li>
+<li><a href="#general6">How does Intel&copy; Concurrent Collection for C++ differ from other parallel models such as OpenMP* and Intel&copy; Threading Building Blocks?</a></li>
+</ul>
+<p><a href="#package">Question about the Intel&copy; Concurrent Collection for C++ package: content, download, install, feedback</a></p>
+<a href="#package"></a>
+<ul>
+<a href="#package"></a>
+<li><a href="#package"></a><a href="#package1">What is in the Intel&copy; Concurrent Collections for C++ package?</a></li>
+<li><a href="#package2">How do I get started?</a></li>
+<li><a href="#package3">What is the state of the product on the WhatIf site?</a></li>
+<li><a href="#package4">How do I report problems or send feedback?</a></li>
+<li><a href="#package5">What kind of feedback are you looking for?</a></li>
+</ul>
+<p><a href="#using">Question about using Intel&copy; Concurrent Collections for C++</a></p>
+<ul>
+<li><a href="#using1">How do get my application to distributed memory, e.g. on a cluster?</a></li>
+<li><a href="#using2">The compiler doesn't find header files tbb/*.h. I have a full installation of Intel&copy; Threading Building Blocks (TBB), what's wrong?</a></li>
+<li><a href="#using3">The compiler doesn't find header files tbb/*.h. I have a full installation of Intel&copy; Composer or Intel&copy; Parallel Studio, what's wrong?</a></li>
+</ul>
+<p><a href="#legal">Disclaimer and Legal Information</a>
+</p>
+<h2 class="sectionHeading"><a name="general"></a>General Questions about Concurrent Collections
+</h2>
+<p><a name="general1"></a><b>1. What is Intel&copy; Concurrent Collections for C++</b><br />Intel&copy; Concurrent Collections for C++ is a programming model that allows application domain experts to write multi-core enabled applications on shared and distributed memory without reasoning about threads, the parallel algorithm, or details of scheduling.</p>
+<p><a name="general2"></a><b>2. What is the derivation of the name "Intel&copy; Concurrent Collections for C++"?</b><br />We wanted a name that was both generic and descriptive of what the product does and one that did not conflict with existing names in the industry. "Concurrent" obviously alludes to the fact that this is a parallel programming technology. Wikipedia defines "Collections" as a grouping of some variable number of data items. It is also a term used in object oriented programming to refer to a set of objects. Intel&copy; Concurrent Collections for C++ speaks of three types of objects: steps (computations), tags (controls), and items (data). So the name seemed both generic and descriptive!</p>
+<p>By the way, the original name for the technology, "TStreams", referred to tagged streams. The tags allow Intel&copy; Concurrent Collections for C++ to be more powerful than strict streaming models. You will see the name "TStreams" in several papers that are available on the web, co-authored by one of the developers of the technology who is now an Intel employee, Kath Knobe.
+</p>
+<p><a name="general3"></a><b>3. How do I write parallel applications using Intel&copy; Concurrent Collections for C++?</b><br />
+You are an application domain expert. Imagine you are describing your application to a friend on a whiteboard. You specify the computational steps and their inputs and outputs in graph form. Intel&copy; Concurrent Collections for C++ provides a narrow API for you to define your graph and write your step code.</p>
+<p>In contrast to the way one would write a serial program, at no time does one specify the execution order of steps, only the inputs and outputs. The runtime system is responsible for scheduling the execution of the steps when its inputs are available and all the conditions for execution are met. At no time in this process does the domain expert reason about execution order or scheduling.</p>
+<p>For a full discussion see "<a href="CnC_eight_patterns.pdf">The Eight fundamental Patterns of Concurrent Collections</a>" and the Step-by-Step API Tutorial
+    <a href="api/tutorial.html"> (HTML)</a>
+</p>
+<p><a name="general4"></a><b>4. What benefits can I expect from using Intel&copy; Concurrent Collections for C++?</b><br />
+The Intel&copy; Concurrent Collections for C++ approach allows for a separation of concerns in parallel programming. You as a domain expert only need to focus on the semantics of computations (what the domain expert already knows) without reasoning about the underlying parallel model and the specific target architecture. Porting to a different target platform or interfacing to a different runtime is simplified because the description of the computation remains the same. As an example, without significant changes, your application will run on shared and distributed memory.
+</p>
+<p><a name="general5"></a><b>5. What applications are suited for parallelization with Intel&copy; Concurrent Collections for C++?</b><br />
+Every computation step specified in an Intel&copy; Concurrent Collections for C++ graph is assumed able to be executed in parallel with only the constraints imposed by the relations in the graph. When all required inputs to a step are available, the step can start execution and may produce outputs that further drive the execution of other step instances. Re-targeting the application for a different form of parallel execution requires only linking the compiled application with a runtime appropriate to the hardware configuration.
+</p>
+<p><a name="general6"></a><b>6. How does Intel&copy; Concurrent Collection for C++ differ from other parallel models such as OpenMP* and Intel&copy; Threading Building Blocks?</b><br />
+OpenMP* is a shared memory parallel programming model consisting of a set of compiler directives and library routines that extend C++ (and FORTRAN). The user uses the language extensions to specify control structures, data environment, synchronization, and scheduling approach for parallel executions.</p>
+<p>Intel&copy; TBB is a C++ template library that implements a set of common parallel programming patterns. The user chooses among parallel algorithm templates for parallelizing an application without the need to deal with threads and scheduling policies.</p>
+<p>Like OpenMP* and Intel&copy; TBB, Intel&copy; Concurrent Collections for C++ provides a high-level programming abstraction for parallel. Unlike these other parallel programming approaches, however, Intel&copy; Concurrent Collections for C++ does not require the application domain expert to reason about the parallel algorithm or scheduling.</p>
+<p>Most other models are limited to shared memory; Intel&copy; Concurrent Collections for C++ can be used on shared and distributed memory.
+</p>
+<h2 class="sectionHeading"><a name="package"></a>Question about the Intel&copy; Concurrent Collection for C++ package: content, download, install, feedback
+</h2>
+<p><a name="package1"></a><b>7. What is in the Intel&copy; Concurrent Collections for C++ package?</b><br />
+Intel&copy; Concurrent Collections for C++ includes user documentation (Getting Started, User's Guide, Reference Manual, Tutorial, and Release Notes), runtime library and samples. It runs on Linux and Windows* (Visual Studio* 2005, Visual Studio* 2008 and Visual Studio* 2010).
+</p>
+<p><a name="package2"></a><b>8. How do I get started?</b><br />
+Please see the <a href="index.html?nav=Getting_Started.html">Getting Started Guide</a> for installation and first steps with Intel&copy; Concurrent Collections for C++. The Step-by-Step API Tutorial
+    <a href="api/tutorial.html"> (HTML)</a>
+gives you step by step instruction as you begin to write your own CnC program. An introduction to the fundamental concepts of Concurrent Collections can be found in "<a href="CnC_eight_patterns.pdf">The Eight fundamental Patterns of Concurrent Collections</a>"
+</p>
+<p><a name="package3"></a><b>9. What is the state of the product on the WhatIf site?</b><br />
+This is a prototype product. See the Release Notes for a list of features we know we'll need (e.g., garbage collection, reductions, in-place operations). Performance and scalability are not yet fully addressed by this prototype release.
+</p>
+<p><a name="package4"></a><b>10. How do I report problems or send feedback?</b><br />
+Please report problems or send feedback through our software engineering blogs.
+</p>
+<p><a name="package5"></a><b>11. What kind of feedback are you looking for?</b><br />
+We appreciate all feedback; in particular feedback on the following:
+</p>
+<ul>
+<li>Your thoughts on this parallel programming model. How does it compare with other techniques you have used?</li>
+<li>Features of Intel&copy; Concurrent Collections for C++. What missing features are important to you?</li>
+<li>Syntax of the Intel&copy; Concurrent Collections for C++ textual notation.</li>
+<li>Ease of use of the current implementation. What did you find difficult to use or to understand?</li>
+<li>Are there restrictions that present problems for your application domain?</li>
+<li>What did you like?</li>
+</ul>
+<h2 class="sectionHeading"><a name="using"></a>Question about using Intel&copy; Concurrent Collections for C++
+</h2>
+<p><a name="using1"></a><b>12. How do get my application to distributed memory, e.g. on a cluster?</b><br /><a href="api/tutorial.html">The Step-by-Step API Tutorial</a>
+has a <a href="api/distcnc.html">chapter</a> which discusses the support for distributed memory in detail.</p>
+<p><a name="using2"></a><b>13. The compiler doesn't find header files tbb/*.h. I have a full installation of Intel&copy; Threading Building Blocks (TBB), what's wrong?</b><br />Most probably the environment variable TBBROOT is not properly set. Please read <a href="index.html?nav=Getting_Started.html#Installing_the_Intel_Threading_Building">Getting Started Guide</a> for a detailed description.
+</p>
+<p><a name="using3"></a><b>14. The compiler doesn't find header files tbb/*.h. I have a full installation of Intel&copy; Composer or Intel&copy; Parallel Studio, what's wrong?</b><br />Most probably the environment variable TBBROOT is not properly set. In Windows*, Intel&copy; Composer and Intel&copy; Parallel Studio not always export the TBBROOT environment variable. You must explicitly set it. If you do not know how to do this, please read <a href="index.html?nav=Getting_Started.html#_Toc319330630">this</a> and <a href="index.html?nav=Getting_Started.html#_Toc319330632">this</a>.
+</p>
+<p><a name="using3"></a><b>14. why does the Microsoft* compiler reports "unexpected end of file"in one of the CnC files.</b>
+<br />Might be a bug in the compiler. It should report that you're using a older version of TBB than required. <a href="index.html?nav=Getting_Started.html#_Toc319330630">Check your TBB version</a>, and update if required.
+
+</html>
