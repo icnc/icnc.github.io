@@ -138,20 +138,19 @@ a.button {
   line-height: 1.2;
   font-size: 23px;
   color: #fff;
+  padding-left: 68px;
+  padding-top: 22px;
   font-family: 'Helvetica Neue', Helvetica, Arial, serif; 
 }
 a.button small {
   display: block;
   font-size: 14px;
 }
-
 header a.button {
-  padding-top: 20px;
-  padding-left: 85px;
   position: absolute;
   right: 0;
   top: 0;
-  background: transparent url(../images/cnc-logo-white.png) 0 0 no-repeat;
+  background: transparent url(../images/github-button.png) 0 0 no-repeat;
 }
 
 #main-content a.button,
