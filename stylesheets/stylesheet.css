@@ -109,6 +109,10 @@ header h2 {
   max-width: 100%;
 }
 
+b {
+    font-weight: bold;
+}
+
 aside#sidebar {
   width: 200px;
   padding-left: 20px;
@@ -207,7 +211,8 @@ hr {
 
 table {
   width: 100%;
-  border: 1px solid #ebebeb;
+  border: 0px solid #ebebeb;
+  background-image: url('../images/table-bg.jpg');
 }
 
 th {
@@ -216,8 +221,19 @@ th {
 
 td {
   border: 1px solid #ebebeb;
-  text-align: center; 
+  text-align: left; 
   font-weight: 300;
+  padding: 10px 10px 10px 10px;
+  vertical-align: middle;
+}
+
+.firstcol {
+/*   background-image: url('../images/header-bg.jpg');*/
+}
+
+.fc {
+    font-weight: bold;
+/*    color: #ffffff;*/
 }
 
 form {

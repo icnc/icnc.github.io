@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+        <h1>Parallelism Without the Pain</h1>
+          <h2>What's CnC?</h2>
+            The major goal of CnC (Concurrent Collections) is a
+            productive path to efficient parallel execution. And yet a
+            CnC program does not indicate what runs in
+            parallel. Instead, it explicitly identifies what precludes
+            parallel execution. There are exactly two reasons that
+            computations cannot execute in parallel. If one
+            computation produces data that the other one consumes, the
+            producer must execute before the consumer. If one
+            computation determines if another will execute, the
+            controller must execute before the controllee. CnC is a
+            data and control flow model together with tuple-space
+            influence. However, it is closer in philosophy to the PDG
+            (Program Dependence Graph) intermediate form than to other
+            parallel programming models. Its high-level abstractions
+            allow flexible and efficient mapping of a CnC program to
+            the target platform. By this it simplifies parallelism and
+            at the same time let's you exploit the full parallel potential
+            of your application.<p/>
+
+        <h2>Intel&copy; Concurrent Collections for C++</h2>
+            Intel&copy; Concurrent Collections for C++ is a C++ template
+            library for letting C++ programmers implement CnC applications
+            which run in parallel on shared and distributed memory.
+
+        <h3>Easy parallelism</h3>
+          There is no need to think about lower level parallelization
+          techniques like threading primitives or message passing; no
+          need to understand pthreads, MPI, Windows threads,
+          TBB,... There is no need to think about different types of
+          parallelism such as task, pipeline, fork-join, task or data
+          parallelism. Intel&copy; Concurrent Collections for C++ provides
+          a separation of concerns between what the application means
+          and how to tune it for a specific platform. The application
+          code can be paired with isolated tuning code. This allows
+          programmers to focus on each separately.
+
+        <h3>Portability</h3>
+          The same source runs on Windows and
+          Linux. The same binary runs on shared memory multi-core
+          systems and clusters of workstations. In fact, Intel&copy;
+          Concurrent Collections for C++ is a unified model for shared
+          and distributed memory systems (as opposed to the MPI /
+          OpenMP combination, for example).
+
+        <h3>Efficiency</h3>
+          Because Intel&copy; Concurrent Collections for C++ provides a way
+          to express an algorithm with minimal scheduling constraints,
+          it is very efficient. In addition, Intel&copy; Concurrent
+          Collections for C++ supports two types of tuning: Runtime
+          tuning makes the runtime more efficient for a specific
+          application. Application tuning makes the application itself
+          more efficient with user-specified distribution of the work.
+
+        <h3>Scalability</h3>
+          Intel&copy; Concurrent Collections for C++ achieves scalable
+          performance on a wide range of configurations from small
+          multicore systems to large clusters. No need to re-write or
+          re-compile application in order to target a new
+          configuration.
+
+</html>
