@@ -167,6 +167,14 @@ aside a.button {
   font-size: 16px;
 }
 
+#download_list ul.dl_win_nav {
+    display: none;
+}
+
+#download_list ul.visible {
+    display: block;
+}
+
 code, pre {
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
   color: #222;
