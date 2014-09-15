@@ -24,8 +24,8 @@
 </ul>
 
 <h2 class="sectionHeading"><a name="_Toc318971091"></a>Overview</h2>
-<p>Intel&copy; Concurrent Collections for C++ is a new language for describing parallel computations. It distinguishes the expression of the potential parallelism of the program from both the lower-level serial details of the algorithm, and the actual parallelism for a given target. It works on shared and distributed memory.</p>
-<p>These release notes describe the supported platforms; installation instructions; functionality added, changed, and removed, and known issues and possible workarounds for those issues for Intel&copy; Concurrent Collections for C++ since the previous release.</p>
+<p>Intel&reg; Concurrent Collections for C++ is a new language for describing parallel computations. It distinguishes the expression of the potential parallelism of the program from both the lower-level serial details of the algorithm, and the actual parallelism for a given target. It works on shared and distributed memory.</p>
+<p>These release notes describe the supported platforms; installation instructions; functionality added, changed, and removed, and known issues and possible workarounds for those issues for Intel&reg; Concurrent Collections for C++ since the previous release.</p>
 
 <h2 class="sectionHeading"><a name="_Toc318971092"></a>Supported Platforms</h2>
 <p>Microsoft Windows* 7 or newer (embedded editions not supported) or Linux running on intel64 or ia32 (Windows* only) processor architecture.</p>
@@ -36,7 +36,7 @@
 
 <h2 class="sectionHeading"><a name="_Toc318971094"></a>Restrictions</h2>
 <p>The following restrictions apply to this version of the release of this product:</p>
-<p>The WhatIf release of Intel&copy; Concurrent Collections for C++ should not be used in production code. Please contact <a href="index.html?nav=Getting_Started.html/#Report_Problems_or_Leave_Feedback">technical support</a> if you are interested in using Intel&copy; Concurrent Collections for C++ in production code.</p>
+<p>The WhatIf release of Intel&reg; Concurrent Collections for C++ should not be used in production code. Please contact <a href="index.html?nav=Getting_Started.html/#Report_Problems_or_Leave_Feedback">technical support</a> if you are interested in using Intel&reg; Concurrent Collections for C++ in production code.</p>
 <p>Follow on releases of this product will likely require rewriting of some of your code. Backward compatibility is not guaranteed.</p>
 
 <h2 class="sectionHeading"><a name="_Toc318971101"></a>Known Problems and Limitations</h2>
@@ -49,7 +49,7 @@
 <li>Use TCP by setting environment variables (at runtime) I_MPI_FABRICS=shm:tcp and I_MPI_TCP_NETMASK=ib and I_MPI_DYNAMIC_CONNECTION=0
 </ol></p>
 <p><b>Problem:</b> CnC::parallel_for does not work with older Microsoft* compilers, the compiler issues error messages.<br />
-<b>Workaround:</b> Use the Intel&copy; C++ compiler or use tbb::parallel_for.</p>
+<b>Workaround:</b> Use the Intel&reg; C++ compiler or use tbb::parallel_for.</p>
 <p><b>Problem:</b> When unsing SOCKETS for distributed memory on Windows*, the runtime issues errors related to unsufficient memory for the socket communication.<br /><b>Workarounds:</b>
 <ol type="a">
 <li> Use MPI
@@ -116,7 +116,7 @@
 
 <h2 class="sectionHeading"><a name="_0_7_003"></a>What's New with Release 0.7.003?</h2>
 <ul>
-<li>Linux* and Windows* have been validated to work with Intel&copy; Threading Building Blocks (Intel&copy; TBB) 4.0.</li>
+<li>Linux* and Windows* have been validated to work with Intel&reg; Threading Building Blocks (Intel&reg; TBB) 4.0.</li>
 <li>Various bug-fixes</li>
 <li>Performance improvements</li>
 <li>Changes to API make this release incompatible with previous versions 
@@ -132,7 +132,7 @@
 </li>
 <li>Extended and more stable support for distributed memory 
 <ul>
-<li>Works with Intel&copy; MPI 4.0.1 and later</li>
+<li>Works with Intel&reg; MPI 4.0.1 and later</li>
 <li>Tuning capabilities for adjusting the distribution plan</li>
 <li>Get-counted garbage collection</li>
 <li>Tag-ranges</li>
@@ -144,7 +144,7 @@
 <li>All updated to conform to the new API</li>
 </ul>
 </li>
-<li>Support for profiling with Intel&copy; Trace Analyzer and Collector (distributed and shared memory)</li>
+<li>Support for profiling with Intel&reg; Trace Analyzer and Collector (distributed and shared memory)</li>
 <li>Added API for expressing producer/consumer relationships as well as for controller/controlee relationship</li>
 <li>Removed graph builder and spec translator from release</li>
 <li>All documents have been updated to conform to the new runtime API</li>
@@ -153,7 +153,7 @@
 <h2 class="sectionHeading"><a name="_Toc318971096"></a>What's New with Release 0.6.0?</h2>
 <ul>
 <li>Microsoft Visual Studio* 2010 support has been added.</li>
-<li>Linux* and Windows* have been validated to work with Intel&copy; Threading Building Blocks (Intel&copy; TBB) 3.0.</li>
+<li>Linux* and Windows* have been validated to work with Intel&reg; Threading Building Blocks (Intel&reg; TBB) 3.0.</li>
 <li>Bugs fixed:</li>
 <li>Increased the maximum size of a .cnc file.</li>
 <li>Fixed typographical error in coding hints file, which caused compilation failures.</li>
@@ -168,7 +168,7 @@
 <ul>
 <li>GraphBuilder added for Windows* 
 <ul>
-<li>A GUI tool to design and build an Intel&copy; Concurrent Collections for C++ graph has been added to the product. GraphBuilder will translate the graph, which can be translated directly to a CnC C++ header file and corresponding codinghints.txt file. Please see the <a href="GraphBuilderUsersGuide.pdf">GraphBuilder User's Guide</a> document for information on using the GraphBuilder.</li>
+<li>A GUI tool to design and build an Intel&reg; Concurrent Collections for C++ graph has been added to the product. GraphBuilder will translate the graph, which can be translated directly to a CnC C++ header file and corresponding codinghints.txt file. Please see the <a href="GraphBuilderUsersGuide.pdf">GraphBuilder User's Guide</a> document for information on using the GraphBuilder.</li>
 <li>GraphBuilder requires Visual Studio* 2008 with C#.</li>
 </ul>
 </li>
@@ -188,7 +188,7 @@
 <li>The following samples are added to illustrate the new runtime features: mandel, fib, fib_getcount, fib_preschedule, fib_stats, fib_trace, fib_tuner, primes_parfor, primes_range.</li>
 <li>Documents updated</li>
 <li>The documents "Runtime API" and "Concurrent Collections Tutorial" have been updated to conform to the updated runtime API</li>
-<li>On Windows* and Linux*, the default Intel&copy; Concurrent Collections for C++ runtime library has been changed from static to dynamic form. If you want to use the static CnC version of the libraries (only on Windows*), you must define a Preprocessor Definition named "CNC_STATIC_LIB", and specify either "cnc_static_debug.lib" or "cnc_static.lib" in the Linker Input Additional Dependencies property. Please refer to any of the the supplied Samples to view how this is done for configurations named "Static_Debug" and Static_Release".</li>
+<li>On Windows* and Linux*, the default Intel&reg; Concurrent Collections for C++ runtime library has been changed from static to dynamic form. If you want to use the static CnC version of the libraries (only on Windows*), you must define a Preprocessor Definition named "CNC_STATIC_LIB", and specify either "cnc_static_debug.lib" or "cnc_static.lib" in the Linker Input Additional Dependencies property. Please refer to any of the the supplied Samples to view how this is done for configurations named "Static_Debug" and Static_Release".</li>
 <li>On Windows*, the requirement to have the VS2005 SP1 runtime libraries installed on the system to run the translator (cnc.exe) for VS2008 projects has been eliminated.</li>
 </ul>
 
@@ -201,7 +201,7 @@
 </li>
 <li>New runtime API 
 <ul>
-<li>We have developed a new C++ API that provides a natural way to program in C++ using the Intel&copy; Concurrent Collections design methodology. The API also includes interfaces for tuning and debugging your Intel&copy; Concurrent Collections program. Note that this new version is not compatible with the previous versions. See the <a href="api/index.html">Runtime API</a> document for detailed information.</li>
+<li>We have developed a new C++ API that provides a natural way to program in C++ using the Intel&reg; Concurrent Collections design methodology. The API also includes interfaces for tuning and debugging your Intel&reg; Concurrent Collections program. Note that this new version is not compatible with the previous versions. See the <a href="api/index.html">Runtime API</a> document for detailed information.</li>
 </ul>
 </li>
 <li>Textual notation updated 
@@ -225,12 +225,12 @@
 <ul>
 <li>Performance improvement 
 <ul>
-<li>Steps can now be specified with different priorities to improve performance. See 1.1.4 Attributes for steps in the Intel&copy; Concurrent Collections for C++ Reference Manual.</li>
+<li>Steps can now be specified with different priorities to improve performance. See 1.1.4 Attributes for steps in the Intel&reg; Concurrent Collections for C++ Reference Manual.</li>
 </ul>
 </li>
 <li>Memory usage improvement 
 <ul>
-<li>Garbage collection by ref-counting is now supported to reduce memory usage. See 1.1.5 Attributes for items in the Intel&copy; Concurrent Collections for C++ Reference Manual.</li>
+<li>Garbage collection by ref-counting is now supported to reduce memory usage. See 1.1.5 Attributes for items in the Intel&reg; Concurrent Collections for C++ Reference Manual.</li>
 </ul>
 </li>
 <li>Samples added 
@@ -245,7 +245,7 @@
 </li>
 <li>Documents updated: 
 <ul>
-<li>Intel&copy; Concurrent Collections for C++ Reference Manual</li>
+<li>Intel&reg; Concurrent Collections for C++ Reference Manual</li>
 </ul>
 </li>
 <li>Problems fixed 
@@ -259,23 +259,23 @@
 <ul>
 <li>Supported platforms 
 <ul>
-<li>Support for Windows* Intel&copy; 64 architecture systems has been added.</li>
+<li>Support for Windows* Intel&reg; 64 architecture systems has been added.</li>
 </ul>
 </li>
 <li>Technical requirements 
 <ul>
-<li>To use this release, you must have the Intel&copy; Threading Building Blocks 2.1 installed. See Getting Started for details on how to download and install this version.</li>
+<li>To use this release, you must have the Intel&reg; Threading Building Blocks 2.1 installed. See Getting Started for details on how to download and install this version.</li>
 </ul>
 </li>
 <li>Textual notation enhancements 
 <ul>
 <li>Declaration of step collections is allowed.</li>
-<li>More error and warning messages added for legal graphs checking. For more information, please refer to Chapter 1.3 of the Intel&copy; Concurrent Collections for C++ Reference Manual.</li>
+<li>More error and warning messages added for legal graphs checking. For more information, please refer to Chapter 1.3 of the Intel&reg; Concurrent Collections for C++ Reference Manual.</li>
 </ul>
 </li>
 <li>Functionality added 
 <ul>
-<li>The constructor for the generated graph class now accepts an optional int parameter that specifies the number of desired threads to use at runtime. For more information, please refer to Chapter 2.2 of the Intel&copy; Concurrent Collections for C++ Reference Manual.</li>
+<li>The constructor for the generated graph class now accepts an optional int parameter that specifies the number of desired threads to use at runtime. For more information, please refer to Chapter 2.2 of the Intel&reg; Concurrent Collections for C++ Reference Manual.</li>
 </ul>
 </li>
 <li>Performance improvement 
@@ -303,7 +303,7 @@
 <li>Documents updated 
 <ul>
 <li>Getting Started</li>
-<li>Intel&copy; Concurrent Collections for C++ Reference Manual</li>
+<li>Intel&reg; Concurrent Collections for C++ Reference Manual</li>
 </ul>
 </li>
 <li>Problems fixed 
@@ -314,6 +314,6 @@
 </ul>
 
 <h2 class="sectionHeading"><a name="thirdparty"></a>Third Party Attributions</h2>
-Intel&copy; Concurrent Collections for C++ was created using the Caphyon Advanced Installer which uses the HTMLayout Component, copyright <a target="_blank" href="http://terrainformatica.com">Terra Informatica Software, Inc. ().</a>
+Intel&reg; Concurrent Collections for C++ was created using the Caphyon Advanced Installer which uses the HTMLayout Component, copyright <a target="_blank" href="http://terrainformatica.com">Terra Informatica Software, Inc. ().</a>
 
 </html>
