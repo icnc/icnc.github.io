@@ -8,6 +8,7 @@
 <li><a href="#_Toc318971093">Installation Notes</a></li>
 <li><a href="#_Toc318971094">Restrictions</a></li>
 <li><a href="#_Toc318971101">Known Problems and Limitations</a></li>
+<li><a href="#_1_0_100">What's New with Release 1.0.100</a></li>
 <li><a href="#_1_0_002">What's New with Release 1.0.002</a></li>
 <li><a href="#_0_9_001">What's New with Release 0.9.001</a></li>
 <li><a href="#_0_8_000">What's New with Release 0.8.000</a></li>
@@ -28,7 +29,7 @@
 <p>These release notes describe the supported platforms; installation instructions; functionality added, changed, and removed, and known issues and possible workarounds for those issues for Intel&reg; Concurrent Collections for C++ since the previous release.</p>
 
 <h2 class="sectionHeading"><a name="_Toc318971092"></a>Supported Platforms</h2>
-<p>Microsoft Windows* 7 or newer (embedded editions not supported) or Linux running on intel64 or ia32 (Windows* only) processor architecture.</p>
+<p>Microsoft Windows* 7 or newer (embedded editions not supported) or Linux running on intel64 processor architecture.</p>
 <p>Since version 1.0 Intel(R) Concurrent Collections for C++ is also availe as open source from <a href="https://github.com/icnc/icnc">github</a></p>
 
 <h2 class="sectionHeading"><a name="_Toc318971093"></a>Installation Notes</h2>
@@ -50,12 +51,29 @@
 </ol></p>
 <p><b>Problem:</b> CnC::parallel_for does not work with older Microsoft* compilers, the compiler issues error messages.<br />
 <b>Workaround:</b> Use the Intel&reg; C++ compiler or use tbb::parallel_for.</p>
-<p><b>Problem:</b> When unsing SOCKETS for distributed memory on Windows*, the runtime issues errors related to unsufficient memory for the socket communication.<br /><b>Workarounds:</b>
+<p><b>Problem:</b> When unsing SOCKETS for distributed memory on Windows*, the runtime issues errors related to insufficient memory for the socket communication.<br /><b>Workarounds:</b>
 <ol type="a">
 <li> Use MPI
 <li> Add more memory (RAM)
 <li> Use Linux*
 </ol></p>
+
+
+<h2 class="sectionHeading"><a name="_1_0_100"></a>What's New with Release 1.0.100?</h2>
+<ul>
+<li>Improved tracing output: put()s, get()s and reporting never-available items linked to calling step</li>
+<li>Added warning messages about put()s before get()s in step executions (unless -DNDEBUG)</li>
+<li>New CnC programs/samples: raytracer and jacobi2d-heureka</li>
+<li>Improved startup process for SOCKETS on distributed memory</li>
+<li>Dropped binary releases for ia32 and Visual Studio* 2010 (Microsoft Windows*)</li>
+<li>Bug fixes etc.</li>
+<li>Improved source infrastructure (github)</li>
+  <ul>
+  <li>Packaging and testing now driven by cmake</li>
+  <li>Enabled continuous test integration through travis</li>
+  <li>More flexible CMake configuration</li>
+  </ul>
+</ul>
 
 <h2 class="sectionHeading"><a name="_1_0_002"></a>What's New with Release 1.0.002?</h2>
 <ul>
@@ -74,7 +92,7 @@
   <li>Showcasing reductions, mapreduce, join, CnC-SPMD/MPI combo and more
   </ul>
 </li>
-<li>Intel(R) Concurrent Collections for C++ is now availe as open source from <a href="https://github.com/icnc/icnc">github</a>.</li>
+<li>Intel(R) Concurrent Collections for C++ is now available as open source from <a href="https://github.com/icnc/icnc">github</a>.</li>
 <li>Bug fixes etc.</li>
 <li>Added support for Visual Studio* 2013, dropped support for Visual Studio* 2008 (Microsoft Windows* only)
 </ul>
