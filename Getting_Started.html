@@ -95,32 +95,32 @@ in the samples directory, or to build individual samples, type <br />
 <p>If you want to do it the hard way here is what you need to do:</p>
 <ul>
 <li>Add include directory $(CNCROOT)\include<br />(right-click on the project -&gt; Properties -&gt; C/C++ -&gt; General -&gt; Additional Include Directories).</li>
-<li>Add CnC library (where &lt;arch&gt; must be replaced by your CPU architecture: intel64)<br />(right-click on the project -&gt; Properties -&gt; Linker -&gt; Input -&gt; Additional Dependencies):<br />
+<li>Add CnC library <br />(right-click on the project -&gt; Properties -&gt; Linker -&gt; Input -&gt; Additional Dependencies):<br />
 <ul>
-<li><b>"$(CNCROOT)\lib\&lt;arch&gt;\cnc_vc12.0.lib"</b> (when using Microsoft Visual Studio* 2013)</li>
-<li><b>"$(CNCROOT)\lib\&lt;arch&gt;\cnc_vc11.0.lib"</b> (when using Microsoft Visual Studio* 2012)</li>
+<li><b>"$(CNCROOT)\lib\intel64\cnc_vc12.0.lib"</b> (when using Microsoft Visual Studio* 2013)</li>
+<li><b>"$(CNCROOT)\lib\intel64\cnc_vc11.0.lib"</b> (when using Microsoft Visual Studio* 2012)</li>
 </ul>
 </li>
 <li>When building a debug version, it is recommended to 
 <ul>
 <li>Define Preprocessor macro CNC_USE_ASSERT<br />(right-click on the project -&gt; Properties -&gt; C/C++ -&gt;Preprocessor -&gt; Preprocessor Definitions)</li>
-<li>Link against the respective debug version (<b>"$(CNCROOT)\lib\&lt;arch&gt;\cnc_debug_vc*.lib"</b>)</li>
+<li>Link against the respective debug version (<b>"$(CNCROOT)\lib\intel64\cnc_debug_vc*.lib"</b>)</li>
 </ul>
 </li>
 </ul>
 If you are <b>not</b> using a tbbvars.bat script to set up the TBB environment or if you do not build within an Intel&reg; Composer, Intel&reg; Parallel Studio, or Intel&reg; Cluster Studio environment, you also need to provide similar flags for TBB:<br /><br />
 <ul>
 <li>Add include directory $(TBBROOT)\include<br />(right-click on the project -&gt; Properties -&gt; C/C++ -&gt; General -&gt; Additional Include Directories).</li>
-<li>Add CnC library (where &lt;arch&gt; must be replaced by your CPU architecture: intel64)<br />(right-click on the project -&gt; Properties -&gt; Linker -&gt; Input -&gt; Additional Dependencies): 
+<li>Add CnC library <br />(right-click on the project -&gt; Properties -&gt; Linker -&gt; Input -&gt; Additional Dependencies): 
 <ul>
-<li><b>"$(TBBROOT)\lib\&lt;arch&gt;\vc12\tbb.lib $(TBBROOT)\lib\&lt;arch&gt;\vc12\tbbmalloc.lib"</b> (when using Microsoft Visual Studio* 2013)</li>
-<li><b>"$(TBBROOT)\lib\&lt;arch&gt;\vc11\tbb.lib $(TBBROOT)\lib\&lt;arch&gt;\vc11\tbbmalloc.lib"</b> (when using Microsoft Visual Studio* 2012)</li>
+<li><b>"$(TBBROOT)\lib\intel64\vc12\tbb.lib $(TBBROOT)\lib\intel64\vc12\tbbmalloc.lib"</b> (when using Microsoft Visual Studio* 2013)</li>
+<li><b>"$(TBBROOT)\lib\intel64\vc11\tbb.lib $(TBBROOT)\lib\intel64\vc11\tbbmalloc.lib"</b> (when using Microsoft Visual Studio* 2012)</li>
 </ul>
 </li>
 <li>When building a debug version, it is recommended to<br />
 <ul>
 <li>Define Preprocessor macro TBB_USE_ASSERT<br />(right-click on the project -&gt; Properties -&gt; C/C++ -&gt;Preprocessor -&gt; Preprocessor Definitions)</li>
-<li>Link against the respective debug version (<b>"$(TBBROOT)\lib\&lt;arch&gt;\vc*\tbb_debug.lib $(TBBROOT)\lib\&lt;arch&gt;\vc*\tbbmalloc_debug.lib"</b>)</li>
+<li>Link against the respective debug version (<b>"$(TBBROOT)\lib\intel64\vc*\tbb_debug.lib $(TBBROOT)\lib\intel64\vc*\tbbmalloc_debug.lib"</b>)</li>
 </ul>
 </li>
 </ul>
@@ -196,7 +196,6 @@ If you are <b>not</b> using a tbbvars.bat script to set up the TBB environment o
 <p>When installing an updated version of the product, you do not need to remove the older version first.</p>
 
 <h2 class="sectionHeading"><a name="_Toc319330638"></a><a name="Report_Problems_or_Leave_Feedback"></a><a name="_Toc318970625"></a>Report Problems or Leave Feedback</h2>
-<p>To report a problem or leave feedback on this product, please visit:<br /><a href="http://softwarecommunity.intel.com/articles/eng/3862.htm">http://softwarecommunity.intel.com/articles/eng/3862.htm</a><br /><br />or visit the "Whatif Alpha Forum" to participate in forum discussions about Intel&reg; Concurrent Collections:<br /><a href="http://software.intel.com/en-us/forums/whatif-alpha-software/">http://software.intel.com/en-us/forums/whatif-alpha-software/</a></p>
-<p>Then click on <i>"Search Forum"</i> and search for <i>"Concurrent Collections"</i></p>
+<p><li><a href="index.html?nav=contact.html">Please find contact information here.</a>
 
 </html>
